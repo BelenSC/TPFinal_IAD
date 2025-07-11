@@ -20,7 +20,7 @@ tasas_aglom <- aggregate(
   ),
   by = list(
     ANO4 = datos__ocupacion$ANO4,
-    AGLOMERADO = datos__ocupacion$AGLOMERADO # Para hacerlo por aglom.
+    AGLOMERADO = datos__ocupacion$AGLOMERADO 
   ),
   FUN = sum,
   na.rm = TRUE
@@ -42,6 +42,8 @@ tasas_nombre_aglom <- tasas_aglom %>%
             by = c("AGLOMERADO" = "codigo"))
 
 #---------- GRAFICOS
+
+load("D:/Cuatri_III/IAD/TP_r/tasas_evolucion_aglom.RData")
 library(tidyr)
 library(dplyr)
 
@@ -66,7 +68,7 @@ ggplot(tasas_largo, aes(x = ANO4, y = valor, color = tipo_tasa)) +
   geom_point() +
   facet_wrap(~ aglo) +
   labs(
-    title = "Evolución de tasas laborales por aglomerado",
+    title = "Evolución de tasas laborales por aglomerado - Región Pampeana",
     x = "Año",
     y = "Porcentaje",
     color = "Tipo de tasa"

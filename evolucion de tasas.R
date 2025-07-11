@@ -3,7 +3,7 @@ load("D:/Cuatri_III/IAD/TP_r/datos_ocupacion.RData")
 
 datos__ocupacion$PONDERA_anual <- datos__ocupacion$PONDERA / 4
 
-#ifelse(condición, valor_si_TRUE, valor_si_FALSE)
+
 datos__ocupacion$OCUPADO <- ifelse(datos__ocupacion$ESTADO == 1, 1, 0)
 datos__ocupacion$DESOCUPADO <- ifelse(datos__ocupacion$ESTADO == 2, 1, 0)
 #activo: Busca desempleado y empleo y empleados
@@ -19,9 +19,7 @@ tasas_aglom <- aggregate(
     POBLACION = datos__ocupacion$POBLACION * datos__ocupacion$PONDERA_anual
   ),
   by = list(
-    ANO4 = datos__ocupacion$ANO4,
-    AGLOMERADO = datos__ocupacion$AGLOMERADO # Para hacerlo por aglom.
-  ),
+    ANO4 = datos__ocupacion$ANO4  ),
   FUN = sum,
   na.rm = TRUE
 )
@@ -31,8 +29,8 @@ tasas_aglom$tasa_actividad <- round(100 * tasas_aglom$ACTIVO / tasas_aglom$POBLA
 tasas_aglom$tasa_empleo <- round(100 * tasas_aglom$OCUPADO / tasas_aglom$POBLACION, 2)
 tasas_aglom$tasa_desocupacion <- round(100 * tasas_aglom$DESOCUPADO / tasas_aglom$ACTIVO, 2)
 
-print(tasas_aglom[, c("ANO4", "tasa_actividad", "tasa_empleo", "tasa_desocupacion")])
-save(tasas_aglom, file = "tasas_evolucion_aglom.RData")
+print(tasas[, c("ANO4", "tasa_actividad", "tasa_empleo", "tasa_desocupacion")])
+# save(tasas_aglom, file = "tasas_evolucion_aglom.RData")
 #---------- GRAFICOS
 
 load("D:/Cuatri_III/IAD/TP_r/tasas_evolucion.RData")
@@ -55,7 +53,7 @@ ggplot(tasas, aes(x = ANO4)) +
   
 
   scale_x_continuous(breaks = tasas$ANO4) +
-  labs(title = "Evolución de tasas laborales (Región 43)",
+  labs(title = "Evolución de tasas laborales (Región Pampeana)",
        y = "Porcentaje",
        x = "Año", color ="Tasas")
 # write.table(tasas, file ="tasas_evo.csv",sep=";", row.names = F)
