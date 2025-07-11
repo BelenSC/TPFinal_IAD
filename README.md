@@ -8,13 +8,12 @@
 >-  Luis Férnandez
 
 - Alumnos:
-> Soria, Belen 
-> Perez, Santiago
-
+>- Soria, Belen 
+>- Perez, Santiago
 
 
 ***
-### Descripcion
+### Descripción
 
 En el informe se analiza la evolución de la tasa de desocupación, la tasa de 
 empleo, la tasa de actividad y los ingresos de la población. 
@@ -23,7 +22,7 @@ Se examina de forma anualmente en el periodo del 2016 al 2024.
 Se observa la región Pampeana y sus correspondientes aglomerados, once en total.
 Para los cuales tomamos los datos de la Encuesta Permanente de Hogares, proporcionada por el INDEC. 
 
-### Se realiza
+### Se realiza:
 * Ajustes por inflación.
 * Analisis univariado y multivariado.
 * Desarrollo de un modelo estadístico para la imputación de la no respuesta.
@@ -46,5 +45,6 @@ Para los cuales tomamos los datos de la Encuesta Permanente de Hogares, proporci
 | 34 | Mar del Plata |
 | 36 |Río Cuarto |
 | 38 | San Nicolás - Villa Constitución | 
+***
 
 ### 2025 - UTN FRA
